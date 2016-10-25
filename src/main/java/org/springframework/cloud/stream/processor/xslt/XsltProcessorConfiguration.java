@@ -18,6 +18,7 @@ package org.springframework.cloud.stream.processor.xslt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Processor;
@@ -45,6 +46,7 @@ public class XsltProcessorConfiguration {
 	}
 
 	@Bean
+	@RefreshScope
 	public XsltPayloadTransformer transformer() {
 		return new XsltPayloadTransformer(properties.getStylesheet());
 	}
